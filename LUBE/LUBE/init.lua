@@ -1,6 +1,7 @@
 -- Get our base modulename, to require the submodules
 local modulename = ...
-modulename = modulename:match("^(.+)%.init$") or modulename
+--modulename = modulename:match("^(.+)%.init$") or modulename
+modulename = "lube"
 
 local function subrequire(sub)
 	return unpack(require(modulename .. "." .. sub))
@@ -26,10 +27,12 @@ end
 
 -- Use the fallback only if not other class
 -- commons implemenation is defined
-local common = fallback
-if _G.common and _G.common.class then
-	common = _G.common
-end
+
+--local common = fallback
+--if _G.common and _G.common.class then
+--	common = _G.common
+--end
+local common = require "featured" "class"
 
 local lube = {}
 
